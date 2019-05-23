@@ -9,6 +9,7 @@ import { IonicPage } from 'ionic-angular/navigation/ionic-page';
   templateUrl: 'login-cliente.html'
 })
 export class LoginClientePage {
+  
   // this tells the tabs component which Pages
   // should be each tab's root Page
   constructor(public navCtrl: NavController) {
@@ -17,6 +18,7 @@ export class LoginClientePage {
     if (!params) params = {};
     this.navCtrl.push('CadastroPage');
   }
+
   login(){
     this.navCtrl.setRoot('TabsControllerPage');
   }

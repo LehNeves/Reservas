@@ -15,7 +15,7 @@ export class PerfilPage {
   }
   goToLoginCliente(params){
     if (!params) params = {};
-    this.navCtrl.push('LoginClientePage');
+    this.navCtrl.setRoot('LoginClientePage');
   }goToCadastro(params){
     if (!params) params = {};
     this.navCtrl.push('CadastroPage');
