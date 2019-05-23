@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { CadastroPage } from '../cadastro/cadastro';
-import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 
 @IonicPage()
@@ -17,9 +15,9 @@ export class LoginClientePage {
   }
   goToCadastro(params){
     if (!params) params = {};
-    this.navCtrl.push(CadastroPage);
-  }goToHome(params){
-    if (!params) params = {};
-    this.navCtrl.push(TabsControllerPage);
+    this.navCtrl.push('CadastroPage');
+  }
+  login(){
+    this.navCtrl.setRoot('TabsControllerPage');
   }
 } 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { LoginClientePage } from '../login-cliente/login-cliente';
-import { CadastroPage } from '../cadastro/cadastro';
-import { HomePage } from '../home/home';
 
+import { IonicPage } from 'ionic-angular/navigation/ionic-page';
+
+@IonicPage()
 @Component({
   selector: 'page-perfil',
   templateUrl: 'perfil.html'
@@ -15,12 +15,12 @@ export class PerfilPage {
   }
   goToLoginCliente(params){
     if (!params) params = {};
-    this.navCtrl.push(LoginClientePage);
+    this.navCtrl.push('LoginClientePage');
   }goToCadastro(params){
     if (!params) params = {};
-    this.navCtrl.push(CadastroPage);
+    this.navCtrl.push('CadastroPage');
   }goToHome(params){
     if (!params) params = {};
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push('HomePage');
   }
 }
