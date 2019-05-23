@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
+import { CredenciaisDTO } from '../../models/credenciais.dto';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 
@@ -9,10 +11,17 @@ import { IonicPage } from 'ionic-angular/navigation/ionic-page';
   templateUrl: 'login-cliente.html'
 })
 export class LoginClientePage {
+
+  creds : CredenciaisDTO = {
+    email: "",
+    senha: ""
+  };
   
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    public authSevice : AuthService
+    ) {
   }
   goToCadastro(params){
     if (!params) params = {};
@@ -20,6 +29,10 @@ export class LoginClientePage {
   }
 
   login(){
+    this.authSevice.autenticate(this.creds).subscribe(response => {
+        this.authSevice.successfulLogin(response.headers.get('Authorization'));
+      }, 
+      error => {})
     this.navCtrl.setRoot('TabsControllerPage');
   }
 } 

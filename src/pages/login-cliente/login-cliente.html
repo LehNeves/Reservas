@@ -9,13 +9,13 @@
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="creds.email" name="email" type="email" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="loginCliente-input13">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="creds.senha" name="senha" type="password" placeholder=""></ion-input>
       </ion-item>
     </ion-list>
     <div class="spacer" style="width:300px;height:56px;" id="loginCliente-spacer1"></div>
