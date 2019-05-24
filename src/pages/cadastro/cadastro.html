@@ -5,33 +5,34 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page2">
-  <form id="cadastro-form1">
-    <ion-item id="cadastro-input2">
-      <ion-label>
-        CPF:
-      </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
-    </ion-item>
-    <ion-item id="cadastro-input3">
+<ion-content padding>
+  <form [formGroup]= "formGroup" (ngSubmit)="cadastroUsuario(); $event.preventDefault()">
+    <ion-item>
       <ion-label>
         Nome:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="nome" type="text" placeholder=""></ion-input>
     </ion-item>
-    <ion-item id="cadastro-input5">
+    
+    <ion-item>
       <ion-label>
-        CEP:
+        Email:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="email" type="text" placeholder=""></ion-input>
     </ion-item>
-    <ion-item id="cadastro-input6">
+    <ion-item>
       <ion-label>
-        Cidade:
+        CPF:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="cpf" type="text" placeholder=""></ion-input>
     </ion-item>
-    <ion-item id="cadastro-select1">
+    <ion-item>
+      <ion-label>
+        Senha:
+      </ion-label>
+      <ion-input formControlName ="senha" type="text" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>
         Tipo de Logradouro
       </ion-label>
@@ -53,119 +54,68 @@
         </ion-option>
       </ion-select>
     </ion-item>
-    <ion-item id="cadastro-input8">
+    <ion-item>
       <ion-label>
         Logradouro:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="logradouro" type="text" placeholder=""></ion-input>
     </ion-item>
-    <ion-item id="cadastro-input10">
+    <ion-item>
+      <ion-label>
+        Numero:
+      </ion-label>
+      <ion-input formControlName ="numero" type="text" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>
         Complemento:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="complemento" type="text" placeholder=""></ion-input>
     </ion-item>
-    <ion-item id="cadastro-input9">
-      <ion-label>
-        Nº.:
-      </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
-    </ion-item>
-    <ion-item id="cadastro-select2">
+    <ion-item>
+        <ion-label>
+          Bairro:
+        </ion-label>
+        <ion-input formControlName ="bairro" type="text" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>
+            CEP:
+          </ion-label>
+          <ion-input formControlName ="cep" type="text" placeholder=""></ion-input>
+        </ion-item>
+
+    <ion-item>
       <ion-label>
         UF:
       </ion-label>
-      <ion-select name="">
-        <ion-option>
-          AC
-        </ion-option>
-        <ion-option>
-          AL
-        </ion-option>
-        <ion-option>
-          AP
-        </ion-option>
-        <ion-option>
-          AM
-        </ion-option>
-        <ion-option>
-          BA
-        </ion-option>
-        <ion-option>
-          CE
-        </ion-option>
-        <ion-option>
-          DF
-        </ion-option>
-        <ion-option>
-          ES
-        </ion-option>
-        <ion-option>
-          GO
-        </ion-option>
-        <ion-option>
-          MA
-        </ion-option>
-        <ion-option>
-          MG
-        </ion-option>
-        <ion-option>
-          MS
-        </ion-option>
-        <ion-option>
-          MT
-        </ion-option>
-        <ion-option>
-          PA
-        </ion-option>
-        <ion-option>
-          PB
-        </ion-option>
-        <ion-option>
-          PE
-        </ion-option>
-        <ion-option>
-          PI
-        </ion-option>
-        <ion-option>
-          PR
-        </ion-option>
-        <ion-option>
-          RJ
-        </ion-option>
-        <ion-option>
-          RN
-        </ion-option>
-        <ion-option>
-          RO
-        </ion-option>
-        <ion-option>
-          RR
-        </ion-option>
-        <ion-option>
-          RS
-        </ion-option>
-        <ion-option>
-          SC
-        </ion-option>
-        <ion-option>
-          SE
-        </ion-option>
-        <ion-option>
-          SP
-        </ion-option>
-        <ion-option>
-          TO
-        </ion-option>
+      <ion-select (ionChange)="updateCidades()">
+        <ion-option *ngFor="let estado of estados; firts as f" [value]="estado.id" [selected]="f">{{ estado.nome }}</ion-option>
       </ion-select>
     </ion-item>
-    <ion-item id="cadastro-input11">
+
+    <ion-item>
+        <ion-label>
+          Cidade:
+        </ion-label>
+        <ion-select>
+          <ion-option *ngFor="let cidade of cidades; firts as f" [value]="cidade.id" [selected]="f">{{ cidade.nome }}</ion-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+
       <ion-label>
-        Cidade:
+        DDD:
       </ion-label>
-      <ion-input type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="ddd" type="text" placeholder=""></ion-input>
     </ion-item>
-    <button id="cadastro-button1" ion-button color="assertive" block style="border-radius:20px 20px 20px 20px;" href-inappbrowser="/signup">
+    <ion-item>
+        <ion-label>
+          Telefone:
+        </ion-label>
+        <ion-input formControlName ="telefone" type="text" placeholder=""></ion-input>
+      </ion-item>
+    <button ion-button color="assertive" block type="submit" style="border-radius:20px 20px 20px 20px;" href-inappbrowser="/signup">
       Cadastrar
     </button>
   </form>

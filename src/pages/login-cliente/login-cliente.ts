@@ -27,12 +27,20 @@ export class LoginClientePage {
     if (!params) params = {};
     this.navCtrl.push('CadastroPage');
   }
-
+  /*ionViewDidEnter(){
+    this.authSevice.refreshToken()
+    .subscribe(response => {
+      this.authSevice.successfulLogin(response.headers.get('Authorization'));
+      this.navCtrl.setRoot('TabsControllerPage');
+    }, 
+    error => {})
+  this.navCtrl.setRoot('TabsControllerPage');
+  }*/
   login(){
     this.authSevice.autenticate(this.creds).subscribe(response => {
         this.authSevice.successfulLogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('TabsControllerPage');
       }, 
       error => {})
-    this.navCtrl.setRoot('TabsControllerPage');
   }
 } 

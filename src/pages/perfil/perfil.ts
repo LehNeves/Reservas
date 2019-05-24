@@ -5,6 +5,7 @@ import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { StorageService } from '../../services/storage.service';
 import { ClienteDTO } from '../../models/cliente.dto';
 import { ClienteService } from '../../services/domain/cliente.service';
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 
@@ -17,7 +18,8 @@ export class PerfilPage {
 
   constructor(public navCtrl: NavController,
      public storage: StorageService,
-     public clienteService: ClienteService) {}
+     public clienteService: ClienteService,
+     public auth: AuthService) {}
 
   ionViewDidLoad(){
     let localUser = this.storage.getLocalUser();
@@ -25,16 +27,20 @@ export class PerfilPage {
       this.clienteService.findByEmail(localUser.email)
       .subscribe(response => {
         this.cliente = response;
-        console.log(this.cliente);
+      
       },
       error =>{
         if(error.status == 403) {
-          //this.navCtrl.setRoot('LoginClientePage');
+          this.navCtrl.setRoot('LoginClientePage');
         }
       });
     }
     else{
-      //this.navCtrl.setRoot('LoginClientePage');
+      this.navCtrl.setRoot('LoginClientePage');
     }
+  }
+  sair() {
+    this.auth.logout();
+    this.navCtrl.setRoot('LoginClientePage');
   }
 }

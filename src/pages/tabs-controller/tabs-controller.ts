@@ -18,7 +18,5 @@ export class TabsControllerPage {
   tab3Root: string = 'ReservasPage';
   tab4Root: string = 'PerfilPage';
   constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
-  
   }
-
 }
