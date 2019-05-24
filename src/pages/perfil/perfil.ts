@@ -25,6 +25,7 @@ export class PerfilPage {
       this.clienteService.findByEmail(localUser.email)
       .subscribe(response => {
         this.cliente = response;
+        console.log(this.cliente);
       },
       error =>{
         if(error.status == 403) {
