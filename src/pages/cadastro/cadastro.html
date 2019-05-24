@@ -13,7 +13,6 @@
       </ion-label>
       <ion-input formControlName ="nome" type="text" placeholder=""></ion-input>
     </ion-item>
-    
     <ion-item>
       <ion-label>
         Email:
@@ -31,28 +30,6 @@
         Senha:
       </ion-label>
       <ion-input formControlName ="senha" type="text" placeholder=""></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        Tipo de Logradouro
-      </ion-label>
-      <ion-select name="">
-        <ion-option>
-          Rua
-        </ion-option>
-        <ion-option>
-          Avenida
-        </ion-option>
-        <ion-option>
-          Praça
-        </ion-option>
-        <ion-option>
-          Travessa
-        </ion-option>
-        <ion-option>
-          Rodovia
-        </ion-option>
-      </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>
@@ -89,8 +66,8 @@
       <ion-label>
         UF:
       </ion-label>
-      <ion-select (ionChange)="updateCidades()">
-        <ion-option *ngFor="let estado of estados; firts as f" [value]="estado.id" [selected]="f">{{ estado.nome }}</ion-option>
+      <ion-select formControlName ="estadoId" (ionChange)="updateCidades()">
+        <ion-option  *ngFor="let estado of estados; firts as f" [value]="estado.id" [selected]="f">{{ estado.nome }}</ion-option>
       </ion-select>
     </ion-item>
 
@@ -98,7 +75,7 @@
         <ion-label>
           Cidade:
         </ion-label>
-        <ion-select>
+        <ion-select formControlName ="cidadeId">
           <ion-option *ngFor="let cidade of cidades; firts as f" [value]="cidade.id" [selected]="f">{{ cidade.nome }}</ion-option>
         </ion-select>
       </ion-item>

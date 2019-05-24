@@ -18,20 +18,19 @@ export class CadastroPage {
   formGroup: FormGroup;
   estados: EstadoDTO[];
   cidades: CidadeDTO[];
+
   constructor(public navCtrl: NavController,
     public formBuilder: FormBuilder,
     public cidadeService: CidadeService,
     public estadoService: EstadoService,
     public clienteService: ClienteService,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
     ) {
-
       this.formGroup = this.formBuilder.group({
         nome: ['', [Validators.required]],
         email: ['', [Validators.required]],
         cpf: ['', [Validators.required]],
         senha: ['', [Validators.required]],
-        tipoLogradouro: ['', [Validators.required]],
         logradouro: ['', [Validators.required]],
         numero: ['', [Validators.required]],
         complemento: ['', [Validators.required]],
@@ -41,19 +40,18 @@ export class CadastroPage {
         cidadeId : [null, [Validators.required]],
         ddd: ['', [Validators.required]],
         telefone: ['', [Validators.required]]
-        
-
       })
   }
 
   ionViewDidLoad(){
     this.estadoService.findAll()
-    .subscribe(response =>{
-      this.estados = response;
-      this.formGroup.controls.estadoId.setValue(this.estados[0].id);
-      this.updateCidades();
-    },
-    error =>{});
+      .subscribe(response =>{
+        this.estados = response;
+        this.formGroup.controls.estadoId.setValue(this.estados[0].id);
+        this.updateCidades();
+        console.log(this.estados);
+      },
+      error =>{});
   }
 
   updateCidades(){
@@ -65,13 +63,14 @@ export class CadastroPage {
     },
     error =>{});
   }
-  cadastroUsuario(){
 
+  cadastroUsuario(){
+    console.log(this.formGroup.value);
     this.clienteService.insert(this.formGroup.value)
-    .subscribe(response => {
-      this.showInsertOk();
-    },
-    error =>{})
+      .subscribe(response => {
+        this.showInsertOk();
+      },
+     error =>{})
   }
 
   showInsertOk(){
