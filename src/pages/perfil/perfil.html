@@ -6,7 +6,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page7">
-  <button id="perfil-button4" ion-button color="assertive" block style="border-radius:20px 20px 20px 20px;" on-click="goToLoginCliente()">
-    Sair
-  </button>
+    <ion-avatar>
+      <img class="circle" [src]="cliente?.imageUrl || 'assets/imgs/cliente.png'">
+    </ion-avatar>
+    <h2 text-center>{{cliente?.nome}}</h2>
+    <p text-center>{{cliente?.email}}</p>
+  
 </ion-content>
