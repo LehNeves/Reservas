@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
+import { RestauranteService } from '../../services/domain/restaurante.service';
+import { RestauranteDTO } from '../../models/restaurante.dto';
 
 @IonicPage()
 @Component({
@@ -8,9 +10,16 @@ import { IonicPage } from 'ionic-angular/navigation/ionic-page';
   templateUrl: 'restaurantes.html'
 })
 export class RestaurantesPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  constructor(public navCtrl: NavController) {
+ items: RestauranteDTO[];
+  constructor(
+    public navCtrl: NavController,
+    public restauranteService: RestauranteService) {}
+
+  ionViewDidLoad() {
+    this.restauranteService.findAll()
+    .subscribe(response =>{
+      this.items = response;
+    },
+    error => {});
   }
-  
 }
