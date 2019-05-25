@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CidadeService } from '../../services/domain/cidade.service';
-import { EstadoService } from '../../services/domain/estado.service';
-import { EstadoDTO } from '../../models/estado.dto';
-import { CidadeDTO } from '../../models/cidade.dto';
+
 import { ClienteService } from '../../services/domain/cliente.service';
 
 @IonicPage()
@@ -16,13 +13,10 @@ import { ClienteService } from '../../services/domain/cliente.service';
 export class CadastroPage {
  
   formGroup: FormGroup;
-  estados: EstadoDTO[];
-  cidades: CidadeDTO[];
+  
 
   constructor(public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public cidadeService: CidadeService,
-    public estadoService: EstadoService,
     public clienteService: ClienteService,
     public alertCtrl: AlertController,
     ) {
@@ -31,19 +25,19 @@ export class CadastroPage {
         email: ['', [Validators.required]],
         cpf: ['', [Validators.required]],
         senha: ['', [Validators.required]],
-        logradouro: ['', [Validators.required]],
-        numero: ['', [Validators.required]],
-        complemento: ['', [Validators.required]],
-        bairro: ['', [Validators.required]],
-        cep: ['', [Validators.required]],
-        estadoId : [null, [Validators.required]],
-        cidadeId : [null, [Validators.required]],
+        //logradouro: ['', [Validators.required]],
+        //numero: ['', [Validators.required]],
+        //complemento: ['', [Validators.required]],
+        //bairro: ['', [Validators.required]],
+        //cep: ['', [Validators.required]],
+        //estadoId : ['', [Validators.required]],
+        //cidadeId : ['', [Validators.required]],
         ddd: ['', [Validators.required]],
         telefone: ['', [Validators.required]]
       })
   }
 
-  ionViewDidLoad(){
+  /*ionViewDidLoad(){
     this.estadoService.findAll()
       .subscribe(response =>{
         this.estados = response;
@@ -62,7 +56,7 @@ export class CadastroPage {
       this.formGroup.controls.cidadeId.setValue(null);
     },
     error =>{});
-  }
+  }*/
 
   cadastroUsuario(){
     console.log(this.formGroup.value);
@@ -82,7 +76,7 @@ export class CadastroPage {
         {
           text: 'Ok',
           handler:() => {
-            this.navCtrl.pop();
+            this.navCtrl.push('LoginClientePage');
           }
         }
       ]

@@ -11,27 +11,27 @@
       <ion-label>
         Nome:
       </ion-label>
-      <ion-input formControlName ="nome" type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="nome" type="text" placeholder="Digite seu nome"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         Email:
       </ion-label>
-      <ion-input formControlName ="email" type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="email" type="text" placeholder="Digite seu email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         CPF:
       </ion-label>
-      <ion-input formControlName ="cpf" type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="cpf" type="text" placeholder="XXX.XXX.XXX-XX"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>
         Senha:
       </ion-label>
-      <ion-input formControlName ="senha" type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="senha" type="password" placeholder="*********"></ion-input>
     </ion-item>
-    <ion-item>
+    <!--<ion-item>
       <ion-label>
         Logradouro:
       </ion-label>
@@ -79,18 +79,18 @@
           <ion-option *ngFor="let cidade of cidades; firts as f" [value]="cidade.id" [selected]="f">{{ cidade.nome }}</ion-option>
         </ion-select>
       </ion-item>
-    <ion-item>
-
+    -->
+      <ion-item>
       <ion-label>
         DDD:
       </ion-label>
-      <ion-input formControlName ="ddd" type="text" placeholder=""></ion-input>
+      <ion-input formControlName ="ddd" type="text" placeholder="(11)"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>
           Telefone:
         </ion-label>
-        <ion-input formControlName ="telefone" type="text" placeholder=""></ion-input>
+        <ion-input formControlName ="telefone" type="text" placeholder="X XXXX-XXXX"></ion-input>
       </ion-item>
     <button ion-button color="assertive" block type="submit" style="border-radius:20px 20px 20px 20px;" href-inappbrowser="/signup">
       Cadastrar

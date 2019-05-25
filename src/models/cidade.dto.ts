@@ -1,4 +1,4 @@
-export interface CidadeDTO {
-    id: string,
-    nome: string
+export interface CidadeDTO{
+    id : String,
+    nome : String;
 }
