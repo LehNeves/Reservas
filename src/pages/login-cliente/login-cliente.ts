@@ -16,30 +16,33 @@ export class LoginClientePage {
     email: "",
     senha: ""
   };
-  
+
   // this tells the tabs component which Pages
   // should be each tab's root Page
   constructor(public navCtrl: NavController,
-    public authSevice : AuthService
+    public authSevice: AuthService,
     ) {
   }
   goToCadastro(params){
     if (!params) params = {};
-    this.navCtrl.push('CadastroPage');
+    this.navCtrl.push('EscolheCadastroPage');
   }
-  /*ionViewDidEnter(){
-    this.authSevice.refreshToken()
-    .subscribe(response => {
-      this.authSevice.successfulLogin(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('TabsControllerPage');
-    }, 
-    error => {})
-  this.navCtrl.setRoot('TabsControllerPage');
-  }*/
+
   login(){
     this.authSevice.autenticate(this.creds).subscribe(response => {
-        this.authSevice.successfulLogin(response.headers.get('Authorization'));
+      
+      let perfil = this.authSevice.successfulLogin(response.headers.get('Authorization'), response.headers.get('Perfil'));
+      
+      perfil = perfil.replace("[ROLE_", "",).replace("]", "");
+      
+      if (perfil === "CLIENTE") {
         this.navCtrl.setRoot('TabsControllerPage');
+      } else if (perfil === "RESTAURANTE") {
+        console.log("RESTAURANTE");
+      } else if (perfil === "ADMIN") {
+        console.log("ADMIN");
+      }
+
       }, 
       error => {})
   }

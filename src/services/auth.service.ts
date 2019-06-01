@@ -15,7 +15,7 @@ export class AuthService {
 
     autenticate(creds : CredenciaisDTO) {
         return this.http.post(`${API_CONFIG.baseURL}/login`, creds,
-        {
+          {
             observe: 'response',
             responseType: 'text'
         });
@@ -30,13 +30,16 @@ export class AuthService {
         });
     }
 
-    successfulLogin(authorizationValue : string) {
+  successfulLogin(authorizationValue: string, perfil: string): String {
         let tok = authorizationValue.substring(7);
         let user : LocalUser = {
             token: tok,
             email: this.jwtHelper.decodeToken(tok).sub
         };
+        
         this.storage.setLocalUser(user);
+      return perfil;
+
     }
 
     logout(){

@@ -19,4 +19,5 @@ export class TabsControllerPage {
   tab4Root: string = 'PerfilPage';
   constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
   }
+
 }

@@ -1,9 +1,6 @@
-<ion-content padding id="page3">
-  <h1 id="loginCliente-heading1" style="color:#000000;text-align:center;">
-    Minha Reserva
-  </h1>
+<ion-content padding id="page3"style ="background-image: url('assets/imgs/bg.jpg')">
   <ion-avatar>
-    <img class="circle" style="width: 40%; margin: 25px auto 0 auto;" [src]="icon?.imageUrl || 'assets/imgs/food.png'">
+    <img class="circle" style="width: 80%; margin: 25px auto 0 auto;" [src]="icon?.imageUrl || 'assets/imgs/logo.png'">
   </ion-avatar>
   <form id="loginCliente-form2">
     <div class="spacer" style="width:300px;height:66px;" id="loginCliente-spacer2"></div>
@@ -25,7 +22,7 @@
     <button id="loginCliente-button2" ion-button color="dark" block style="border-radius:20px 20px 20px 20px;" (click)="login()">
       Entrar
     </button>
-    <button id="loginCliente-button3" ion-button clear color="positive" block on-click="goToCadastro()">
+    <button id="loginCliente-button3" ion-button  color="light" block style="border-radius:20px 20px 20px 20px;" block on-click="goToCadastro()">
       Crie sua conta
     </button>
   </form>

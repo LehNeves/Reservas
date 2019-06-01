@@ -41,6 +41,6 @@ export class PerfilPage {
   }
   sair() {
     this.auth.logout();
-    this.navCtrl.setRoot('LoginClientePage');
+    this.navCtrl.setRoot('TabsControllerPage');
   }
 }
