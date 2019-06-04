@@ -17,10 +17,10 @@ export class ReservasPage {
   }
   
   ionViewDidLoad() {
-    this.reservasService.findAll()
-    .subscribe(response =>{
+    console.log(this.reservasService.findAll());
+    /*.subscribe(response =>{
       this.items = response;
     },
-    error => {});
+    error => {});*/
   }
 }
