@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { StorageService } from '../../services/storage.service';
@@ -19,7 +19,7 @@ export class PerfilPage {
   constructor(public navCtrl: NavController,
      public storage: StorageService,
      public clienteService: ClienteService,
-     public auth: AuthService) {}
+     public auth: AuthService, private app: App) {}
 
   ionViewDidLoad(){
     let localUser = this.storage.getLocalUser();
@@ -31,16 +31,16 @@ export class PerfilPage {
       },
       error =>{
         if(error.status == 403) {
-          this.navCtrl.setRoot('LoginClientePage');
+          this.app.getRootNav().setRoot('LoginClientePage');
         }
       });
     }
     else{
-      this.navCtrl.setRoot('LoginClientePage');
+      this.app.getRootNav().setRoot('LoginClientePage');
     }
   }
   sair() {
     this.auth.logout();
-    this.navCtrl.setRoot('TabsControllerPage');
+    this.app.getRootNav().setRoot('LoginClientePage');
   }
 }

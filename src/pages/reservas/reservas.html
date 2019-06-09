@@ -9,7 +9,8 @@
   <ion-list *ngFor="let item of items">
     <ion-item color="none" id="cameraTabDefaultPage-list-item2">
     <ion-icon name="clock" item-left></ion-icon>
-      {{item.restaurante}}
+      <h1>{{item.restaurante.nome}}</h1>
+      <h2>{{item.horaReserva | date:'medium'}} </h2>
     </ion-item>
   </ion-list>
 </ion-content>

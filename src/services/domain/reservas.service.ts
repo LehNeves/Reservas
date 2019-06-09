@@ -8,7 +8,7 @@ import { ReservasDTO } from "../../models/reservas.dto";
 export class ReservasService {
     constructor( public http: HttpClient){}
 
-    findAll() : Observable<ReservasDTO[]>{
-        return this.http.get<ReservasDTO[]>(`${API_CONFIG.baseURL}/reservas/list`);
+    findReserva(cliente_id : string) : Observable<ReservasDTO[]>{
+        return this.http.get<ReservasDTO[]>(`${API_CONFIG.baseURL}/clientes/${cliente_id}/reservas`);
     }
 }
