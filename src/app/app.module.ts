@@ -15,6 +15,7 @@ import { AuthInterceptorProvider } from '../interceptor/auth-interceptor';
 import { ErrorInterceptorProvider } from '../interceptor/error-interceptor';
 import { RestauranteService } from '../services/domain/restaurante.service';
 import { ReservasService } from '../services/domain/reservas.service';
+import { Data } from '../pages/restaurantes/restaurante.service';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ReservasService } from '../services/domain/reservas.service';
     StorageService,
     ClienteService,
     RestauranteService,
-    ReservasService
+    ReservasService,
+    Data
   ]
 })
 export class AppModule {}
