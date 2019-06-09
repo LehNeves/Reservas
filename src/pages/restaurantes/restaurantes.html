@@ -5,11 +5,21 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page5">
-  <ion-list *ngFor="let item of items">
-      <button ion-button color="dark" clear inline>{{item.nome}}</button>
-      <button ion-button color="dark" inline style="border-radius:20px 20px 20px 20px;">
-          Reserva
-      </button>
-  </ion-list>
+<ion-content padding id="page5" style="background-image: url(../assets/imgs/bgCadastro.jpg)">
+  <ion-searchbar animated placeholder = "Pesquise por Restaurante, cidade ou disponibilidade" style="background-color: transparent; width:100%; height: auto"></ion-searchbar>
+  <ion-card style="margin-top: 7%; background-color:transparent">
+    <ion-list *ngFor="let item of items">
+      <img class = "ionImgDidLoad "src="../assets/imgs/mc.jpg" style="height: 250px;">
+    <ion-card-header>
+        <ion-card-title style="text-align: center">
+          <h1 >{{item.nome}}</h1>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+          <button ion-button inline size="small" color = "dark">Ver Restaurante</button>
+          <button ion-button inline size="small" color = "light" style="">Reserva Fácil</button>
+      </ion-card-content>
+      <ion-row style="height: 50px"></ion-row>
+    </ion-list>
+  </ion-card>
 </ion-content>
