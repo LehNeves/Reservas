@@ -1,14 +1,46 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Categorias
+      Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding id="page4">
+  <ion-card style="margin-bottom: 10%; height: 30%">
+    <ion-slides style="margin-bottom: 10%; height: 30%;" (ionSlideTap)="slideChanged()" autoplay=1000 speed=2000
+      loop="true" #mySlider>
+      <ion-slide>
+        <h1>Slide 1</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-card style="margin-bottom: 10%; height: 20%; width: auto;">
+    <ion-title>
+      Categorias
+    </ion-title>
+    <ion-slides loop="true">
+      <ion-slide>
+        <img class = "ionImgDidLoad "src="../assets/imgs/mc.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img class = "ionImgDidLoad "src="../assets/imgs/cliente.png">
+      </ion-slide>
+      <ion-slide>
+        <img class = "ionImgDidLoad "src="../assets/imgs/mc.png">
+      </ion-slide>
+    </ion-slides>
+
+
+  </ion-card>
   <ion-list>
-    <button ion-item *ngFor="let item of items">
+    <button ion-item *ngFor="let item of rest">
       <h2>{{item.nome}}</h2>
     </button>
   </ion-list>
