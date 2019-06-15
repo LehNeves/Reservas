@@ -26,29 +26,18 @@
 </ion-content>-->
 
 <ion-header>
-    <ion-navbar>
-      <ion-title>Home</ion-title>
-      <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-    <h2>Welcome to Ionic!</h2>
-    <p>
-      This starter project comes with simple tabs-based layout for apps
-      that are going to primarily use a Tabbed UI.
-    </p>
-    <p>
-      Take a look at the <code>pages/</code> directory to add or change tabs,
-      update any existing page or create new pages.
-    </p>
-  
-  
-    <ion-list>
-          <ion-item *ngFor="let data of jsonData">
-              {{data.name}}
-          </ion-item>
-      </ion-list>
-    
-  </ion-content>
-  
+  <ion-navbar>
+    <ion-title style="text-align: center">Todos Restaurantes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" placeholder="Nome do Restaurante"></ion-searchbar>
+  <br>
+  <ion-list>
+    <button ion-item *ngFor="let item of items">
+      <h2>{{item.nome}}</h2>
+    </button>
+  </ion-list>
+
+</ion-content>

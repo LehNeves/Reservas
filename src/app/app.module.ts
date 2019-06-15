@@ -34,7 +34,7 @@ import { Data } from '../pages/restaurantes/restaurante.service';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     CategoriaService,
     AuthInterceptorProvider,
     ErrorInterceptorProvider,
@@ -46,4 +46,4 @@ import { Data } from '../pages/restaurantes/restaurante.service';
     Data
   ]
 })
-export class AppModule {}
+export class AppModule { }

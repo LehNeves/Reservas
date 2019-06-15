@@ -1,5 +1,5 @@
 export interface ReservasDTO {
-    nome: any;
+    nome: string;
     id: string,
     estadoReserva: string
 }

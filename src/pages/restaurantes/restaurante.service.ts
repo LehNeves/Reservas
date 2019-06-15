@@ -1,37 +1,27 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
- 
+import { RestauranteDTO } from '../../models/restaurante.dto';
+import { RestauranteService } from '../../services/domain/restaurante.service';
+
 @Injectable()
 export class Data {
- 
-    jsonData: any;
- 
-    constructor() {
- 
-        this.jsonData=[
-      {"id":1,"label":"saw","name":"Prithivi"},
-      {"id":2,"label":"saw1","name":"Abimanyu"},
-      {"id":3,"label":"saw2","name":"malliga"},
-      {"id":3,"label":"saw2","name":"Gowdaman"},
-      {"id":3,"label":"saw2","name":"Neethi"},
-      {"id":3,"label":"saw2","name":"abirami1"},
-      {"id":3,"label":"saw2","name":"abirami2"},
-      {"id":3,"label":"saw2","name":"Harrish"},
-      {"id":3,"label":"saw2","name":"Lokesh"},
-      {"id":3,"label":"saw2","name":"Deepak"},
-      {"id":3,"label":"saw2","name":"malliga"},
-      {"id":3,"label":"saw2","name":"malliga"}
 
-      ];
- 
+    rest: RestauranteDTO[];
+
+    constructor(public restauranteService: RestauranteService) {
+        this.restauranteService.findAll()
+            .subscribe(resposta => {
+                this.rest = resposta;
+            },
+                erro => { });
     }
- 
-    filterItems(searchTerm){
- 
-       return this.jsonData.filter((item) => {
-            return item.name.toLowerCase().includes(searchTerm.toLowerCase());
-        });  
- 
+
+    filterItems(searchTerm) {
+
+        return this.rest.filter((item) => {
+            return item.nome.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+
     }
- 
+
 }

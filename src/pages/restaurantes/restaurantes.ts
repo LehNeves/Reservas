@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { RestauranteService } from '../../services/domain/restaurante.service';
 import { RestauranteDTO } from '../../models/restaurante.dto';
-import {Data} from './restaurante.service';
+import { Data } from './restaurante.service';
+
 
 @IonicPage()
 @Component({
@@ -11,29 +12,26 @@ import {Data} from './restaurante.service';
   templateUrl: 'restaurantes.html'
 })
 export class RestaurantesPage {
- //items: RestauranteDTO[];
- jsonData : any;
- searchTerm : any="";
+  items: RestauranteDTO[];
+  searchTerm: any = "";
+
   constructor(
     public navCtrl: NavController,
-    public restauranteService: RestauranteService, public data : Data) {}
+    public restauranteService: RestauranteService, public data: Data) {
 
-  ionViewDidLoad() {
-    this.setFilteredItems();
-    /*this.setFilteredItems();
-    this.restauranteService.findAll()
-    .subscribe(response =>{
-      this.items = response;
-    },
-    error => {});*/
   }
 
- 
-  
- setFilteredItems() {
- 
-  this.jsonData = this.data.filterItems(this.searchTerm);
+  ionViewDidLoad() {
+    this.restauranteService.findAll()
+      .subscribe(resposta => {
+        this.items = resposta;
+      },
+        erro => { });
+  }
 
-}
+
+  setFilteredItems() {
+    this.items = this.data.filterItems(this.searchTerm);
+  }
 
 }

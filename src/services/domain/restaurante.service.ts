@@ -7,18 +7,17 @@ import { RestauranteDTO } from "../../models/restaurante.dto";
 
 @Injectable()
 export class RestauranteService {
-    rest : RestauranteDTO[];
-    constructor( public http: HttpClient){}
+    rest: RestauranteDTO[];
+    constructor(public http: HttpClient) { }
 
-    findAll() : Observable<RestauranteDTO[]>{
+    findAll(): Observable<RestauranteDTO[]> {
         return this.http.get<RestauranteDTO[]>(`${API_CONFIG.baseURL}/restaurantes/list`);
     }
-    
-    filterItems(searchTerm){
-        return this.rest.filter((item) => {
+
+    filterItems(searchTerm) {
+        return this.rest.filter(item => {
             return item.nome.toLowerCase().includes(searchTerm.toLowerCase());
-         });  
-    
-     }
-    
+        });
+
+    }
 }
